@@ -7,69 +7,69 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TListTest {
 
-    TList<Integer> list;
+    TList<Integer> container;
 
     @BeforeEach
-    public void setUp() { list = new TList<>(); }
+    public void setUp() { container = new TList<>(); }
 
     @Test
     void testIsEmptyTrue() {
-        assertEquals(true, list.isEmpty());
+        assertEquals(true, container.isEmpty());
     }
 
     @Test
     void testIsEmptyFalse() {
-        list.addElem(4);
-        list.addElem(3);
-        list.addElem(7);
+        container.addElem(4);
+        container.addElem(3);
+        container.addElem(7);
 
-        assertEquals(false, list.isEmpty());
+        assertEquals(false, container.isEmpty());
     }
 
     @Test
     void testGetElemSuccessful() {
-        list.addElem(4);
-        list.addElem(3);
-        list.addElem(7);
-        list.addElem(1, 1);
+        container.addElem(4);
+        container.addElem(3);
+        container.addElem(7);
+        container.addElem(1, 1);
 
-        assertEquals(7, list.getElem(4).getValue());
+        assertEquals(7, container.getElem(4).getValue());
     }
 
     @Test
     void testGetElemOutOfRange() {
-        list.addElem(5);
-        assertEquals(null, list.getElem(0));
+        container.addElem(5);
+        assertEquals(null, container.getElem(0));
     }
 
     @Test
     void testAddElemByValue() {
-        assertEquals(true, list.addElem(7));
+        assertEquals(true, container.addElem(7));
     }
 
     @Test
     void testAddElemByIndex() {
-        list.addElem(4);
-        list.addElem(5);
-        list.addElem(6);
-        list.addElem(7);
-        list.addElem(8, 3);
+        container.addElem(4);
+        container.addElem(5);
+        container.addElem(6);
+        container.addElem(7);
+        container.addElem(8, 3);
 
-        assertEquals(8, list.getElem(3).getValue());
+        assertEquals(8, container.getElem(3).getValue());
     }
 
     @Test
     void testDeleteElemSuccessful() {
-        list.addElem(4);
-        list.addElem(5);
-        list.addElem(6);
-        list.addElem(7);
+        container.addElem(4);
+        container.addElem(5);
+        container.addElem(6);
+        container.addElem(7);
 
-        assertEquals(true, list.deleteElem(3));
+        assertEquals(true, container.deleteElem(3));
     }
 
     @Test
     void testDeleteElemFromEmptyList() {
-        assertEquals(false, list.deleteElem(4));
+        assertEquals(false, container.deleteElem(4));
     }
 }
