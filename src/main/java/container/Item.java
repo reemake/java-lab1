@@ -1,39 +1,45 @@
 package container;
 
 /**
- * Класс, описывающий структуру узла связного списка
- * @author Никита Сафонов "reemake3@gmail.com"
+ * Class which is describing the structure of a linked list node
+ * @author Nikita Safonov, student of AMM VSU, 3rd year, 3rd group
  * @see TList
  */
 public class Item <T> {
 
-    /** Поле значения */
+    /** Value field */
     private T value;
 
-    /** Ссылка на следующий элемент списка */
+    /** Link to the next item in the list */
     private Item <T> next;
 
-    /** Конструктор для объекта класса Item */
+    /** Constructor for an object of the Item class */
     public Item() {
         this.next = null;
     }
 
-    /** @return значение узла */
+    /**
+     * Getter-method for node value
+     * @return node value
+     */
     public T getValue() {
         return value;
     }
 
-    /** Сеттер-метод для значения узла */
+    /** Setter-method for node value */
     public void setValue(T val) {
         this.value = val;
     }
 
-    /** @return ссылка на следующий узел */
+    /**
+     * Getter-method for link to next node
+     * @return link to next node
+     */
     public Item<T> getNext() {
         return next;
     }
 
-    /** Сеттер-метод для ссылки на соседний узел */
+    /** Setter-method for link to the next node */
     public void setNext(Item<T> obj) {
         this.next = obj;
     }

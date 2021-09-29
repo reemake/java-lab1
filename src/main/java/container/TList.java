@@ -1,39 +1,43 @@
 package container;
 
 /**
- * Класс, описывающий связный список
- * @author Никита Сафонов "reemake3@gmail.com"
+ * Class which is describing a linked list
+ * @author Nikita Safonov, student of AMM VSU, 3rd year, 3rd group
  * @see Item
  */
 public class TList <T> {
 
-    /** Размер списка */
+    /** List size */
     private static int size;
 
-    /** Головной элемент списка */
+    /** List head */
     private Item head;
 
-    /** Конструктор для объекта класса TList */
+    /** Constructor for an object of the TList class */
     public TList() {
         this.head = null;
         size = 0;
     }
 
-    /** Проверка списка на пустоту
-     * @return true если список пустой, иначе false
+    /**
+     * Checking a list for emptiness
+     * @return true if the list is empty, false otherwise
      */
     public boolean isEmpty() {
         return (head == null);
     }
 
-    /** @return размер списка */
+    /**
+     * Getting list size
+     * @return list size
+     */
     public int getSize() {
         return size;
     }
 
     /**
-     * Добавление элемента в начало списка
-     * @param val значение добавляемого элемента
+     * Adding an item to the beginning of the list
+     * @param val the value of the element to be added
      */
     private void addToHead(T val) {
         Item p = new Item();
@@ -44,8 +48,8 @@ public class TList <T> {
     }
 
     /**
-     * Добавление элемента в конец списка
-     * @param val значение добавляемого элемента
+     * Adding an item to the end of the list
+     * @param val the value of the element to be added
      */
     private void addToTail(T val) {
         Item p = new Item();
@@ -58,9 +62,9 @@ public class TList <T> {
     }
 
     /**
-     * Добавление элемента в список по указанной позиции
-     * @param val значение добавляемого элемента
-     * @param index позиция добавляемого элемента
+     * Adding an item to the list at a specified position
+     * @param val the value of the element to be added
+     * @param index position of the element to be added
      */
     private void addByIndex(T val, int index) {
         Item p = new Item();
@@ -73,9 +77,9 @@ public class TList <T> {
     }
 
     /**
-     * Поиск позиции
-     * @param n указанная позиция
-     * @return obj узел, который следует после указанной позиции
+     * Position search
+     * @param n position
+     * @return obj the node that comes after the specified position
      */
     private Item findPosition(int n) {
         Item obj = new Item();
@@ -86,9 +90,9 @@ public class TList <T> {
     }
 
     /**
-     * Добавление элемента в список по значению
-     * @param val значение добавляемого элемента
-     * @return true при успешной вставке, иначе false
+     * Adding an item to a list by value
+     * @param val the value of the element to be added
+     * @return true on successful insert, false otherwise
      */
     public boolean addElem(T val) {
         if (isEmpty()) addToHead(val);
@@ -97,10 +101,10 @@ public class TList <T> {
     }
 
     /**
-     * Добавление элемента в список
-     * @param val значение добавляемого элемента
-     * @param n указанная позиция
-     * @return true при успешной вставке, иначе false
+     * Adding an item to the list with an indication of the position to insert
+     * @param val the value of the element to be added
+     * @param n position
+     * @return true on successful insert, false otherwise
      */
     public boolean addElem(T val, int n) {
         if (isEmpty()) return false;
@@ -119,7 +123,7 @@ public class TList <T> {
         else return false;
     }
 
-    /** Удаление элемента из начала списка */
+    /** Removing an item from the beginning of the list */
     private void deleteFromHead() {
         Item p = new Item();
         p = head;
@@ -129,8 +133,8 @@ public class TList <T> {
         if (size == 0) head = null;
     }
 
-    /** Удаление элемента из конца списка
-     * @param indexOfLastOne позиция последнего элемента
+    /** Removing an item from the end of the list
+     * @param indexOfLastOne position of the last element
      */
     private void deleteFromTail(int indexOfLastOne) {
         Item p = new Item();
@@ -140,8 +144,8 @@ public class TList <T> {
         size--;
     }
 
-    /** Удаление элемента по указанной позиции
-     * @param index указанная позиция
+    /** Removing an element from a specified position
+     * @param index position
      */
     private void deleteByIndex(int index) {
         Item p = new Item();
@@ -155,8 +159,8 @@ public class TList <T> {
     }
 
 
-    /** Удаление элемента из списка
-     * @param n указанная позиция
+    /** Removing an item from the list
+     * @param n position
      */
     public boolean deleteElem(int n) {
         if (isEmpty()) {
@@ -178,8 +182,8 @@ public class TList <T> {
         else return false;
     }
 
-    /** Извлечение элемента из списка
-     * @param n указанная позиция
+    /** Retrieving an item from a list
+     * @param n position
      */
     public Item getElem(int n) {
         if (n < 1 || n > size) {
